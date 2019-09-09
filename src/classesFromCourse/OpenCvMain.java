@@ -1,5 +1,13 @@
 package classesFromCourse;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import org.opencv.core.Core;
+import sample.FXHelloCVController;
+
+/*
 import org.opencv.core.Core;
 
 import javafx.application.Application;
@@ -21,7 +29,7 @@ public class OpenCvMain {
      * @version 1.5 (2016-09-17)
      * @since 1.0 (2013-10-20)
      */
-    public class FXHelloCV extends Application {
+ /*   public class FXHelloCV extends Application {
 
         @Override
         public void start(Stage primaryStage) {
@@ -51,19 +59,22 @@ public class OpenCvMain {
                 e.printStackTrace();
             }
         }
-
         /**
          * For launching the application...
          *
          * @param args optional params
          */
-        public static void main(String[] args) {
+ /*       public static void main(String[] args) {
             // load the native OpenCV library
             System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
             launch(args);
         }
+
     }
-}
 
 
+    }
+
+
+*/

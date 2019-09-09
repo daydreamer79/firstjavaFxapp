@@ -132,7 +132,7 @@ public class FXHelloCVController {
     /**
      * On application close, stop the acquisition from the camera
      */
-    protected void setClosed()
+    public void setClosed()
     {
         this.stopAcquisition();
     }

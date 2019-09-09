@@ -78,7 +78,7 @@ public class Controller {
 
         this.stopAcquistion();
     }
-}
+
            /* if(this.capture.isOpened())
 
             {

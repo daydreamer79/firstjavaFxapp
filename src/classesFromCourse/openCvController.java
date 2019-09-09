@@ -1,5 +1,6 @@
-package sample;
+package classesFromCourse;
 
+import Utils.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import org.opencv.core.Mat;
@@ -9,19 +10,10 @@ import org.opencv.videoio.VideoCapture;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
-import org.opencv.core.Mat;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.videoio.VideoCapture;
 
 import it.polito.elite.teaching.cv.utils.Utils;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**

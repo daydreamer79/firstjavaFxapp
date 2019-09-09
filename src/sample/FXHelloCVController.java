@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 import static javafx.application.Application.launch;
 
-public class Controller {
+public class FXHelloCVController {
     public static void main(String[] args) {
         launch(args);
     }

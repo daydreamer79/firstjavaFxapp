@@ -38,12 +38,6 @@ import javafx.scene.image.ImageView;
 
 public class openCvController {
 
-
-
-
-
-
-
         // the FXML button
         @FXML
         private Button button;

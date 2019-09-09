@@ -70,14 +70,14 @@ public class Controller {
             this.cameraActive = false;
             this.button.setText("Start Camera");
 
-            this.stopAcquistion();
+            this.stopAcquisition();
         }
         /**
          * Get a frame from the opened video stream (if any)
          *
          * @return the {@link Mat} to show
          */
-
+    }
 
         private Mat grabFrame(){
             Mat frame = new Mat();
@@ -94,7 +94,7 @@ public class Controller {
             }
             return frame;
         }
-    }
+
     /**
      * Stop the acquisition from the camera and release all the resources
      */

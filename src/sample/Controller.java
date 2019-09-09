@@ -38,7 +38,7 @@ public class Controller {
     private VideoCapture capture = new VideoCapture();
     private boolean cameraActive = false;
     private static int cameraId = 0;
-
+    //Runnable frameGrabber = new Runnable();
     @FXML
     protected void startCamera(ActionEvent event) {
 
@@ -58,66 +58,43 @@ public class Controller {
                         updateImageView(currentFrame, imageToShow);
                     }
                 };
+                this.timer = Executors.newSingleThreadScheduledExecutor();
+                this.timer.scheduleAtFixedRate(frameGrabber, 0, 33, TimeUnit.MILLISECONDS);
+                this.button.setText("Stop Camera");
 
+            } else {
+                System.err.println("Impossible top open the camera connection");
 
             }
-
-            this.timer = Executors.newSingleThreadScheduledExecutor();
-            this.timer.scheduleAtFixedRate(frameGrabber, 0, 33, TimeUnit.MILLISECONDS);
-            this.button.setText("Stop Camera");
         } else {
-            System.err.println("Impossible top open the camera connection");
+            this.cameraActive = false;
+            this.button.setText("Start Camera");
 
+            this.stopAcquistion();
         }
-    }
-    else
+        /**
+         * Get a frame from the opened video stream (if any)
+         *
+         * @return the {@link Mat} to show
+         */
 
-    {
-        this.cameraActive = false;
-        this.button.setText("Start Camera");
 
-        this.stopAcquistion();
-    }
-
-           /* if(this.capture.isOpened())
-
-            {
-                System.out.println(" Capture opened");
-            }
-
-            //this.capture.release(); if you want to release the capture  before the destructor is called
+        private Mat grabFrame(){
             Mat frame = new Mat();
-            this.capture.read(frame);
-            Imgproc.cvtColor(frame,frame,Imgproc.COLOR_BGR2GRAY);
-            MatOfByte buffer = new MatOfByte();
-        Imgcodecs.imencode(".png",frame,buffer);
-        new Image(new ByteArrayInputStream(buffer.toArray()));
-            Image imageToShow = grabFrame();
-        }
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                currentFrame.setImage(imageToShow);
-            }
-        }*/
-
-    private Mat grabFrame(){
-        Mat frame = new Mat();
-        if (this.capture.isOpened())
-        {
-            try {
-                this.capture.read(frame);
-                if(!frame.empty()){
-                    Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
+            if (this.capture.isOpened()) {
+                try {
+                    this.capture.read(frame);
+                    if (!frame.empty()) {
+                        Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Exception durig the image elaboration: " + e);
                 }
-            } catch (Exception e){
-                System.err.println("Exception durig the image elaboration: "+ e);
+
             }
-
+            return frame;
         }
-        return frame;
     }
-
     /**
      * Stop the acquisition from the camera and release all the resources
      */

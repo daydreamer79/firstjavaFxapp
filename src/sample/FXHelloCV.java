@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.Parent;
+import org.opencv.core.*;
 import org.opencv.core.Core;
 
 import javafx.application.Application;
